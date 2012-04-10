@@ -50,7 +50,7 @@ class DynarexLevenshtein
     h = Hash[([:line, :label] + (0..n).map{|x| ("col%s" % x).to_sym}).zip([(m+1).to_s, label[-1]] + current)]
     @to_dynarex.create h
 
-    @to_dynarex.summary[:distance] = current[n]
+    @to_dynarex.summary[:distance] = current[n].to_s
     current[n]
   end
 end

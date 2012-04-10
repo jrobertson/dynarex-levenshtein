@@ -18,7 +18,7 @@ class DynarexLevenshtein
     n, m = a.length, b.length
 
     schema = 'table[title,string1,string2, distance]/rows(' + \
-        (['line','label'] + (1..n).map{|x| "col%s" % x}).join(',') + ')'
+        (['line','label'] + (0..n).map{|x| "col%s" % x}).join(',') + ')'
     @to_dynarex = Dynarex.new(schema)
 
     @to_dynarex.summary[:title] = 'Calculates the Levenshtein distance between a and b.'
